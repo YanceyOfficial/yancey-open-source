@@ -240,7 +240,7 @@
 
 "@babel/plugin-proposal-decorators@7.1.2":
   version "7.1.2"
-  resolved "http://npm.venus-bdlab.com/@babel%2fplugin-proposal-decorators/-/plugin-proposal-decorators-7.1.2.tgz#79829bd75fced6581ec6c7ab1930e8d738e892e7"
+  resolved "https://registry.yarnpkg.com/@babel%2fplugin-proposal-decorators/-/plugin-proposal-decorators-7.1.2.tgz#79829bd75fced6581ec6c7ab1930e8d738e892e7"
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-replace-supers" "^7.1.0"
@@ -290,7 +290,7 @@
 
 "@babel/plugin-syntax-decorators@^7.1.0":
   version "7.1.0"
-  resolved "http://npm.venus-bdlab.com/@babel%2fplugin-syntax-decorators/-/plugin-syntax-decorators-7.1.0.tgz#2fa7c1a7905a299c9853ebcef340306675f9cbdc"
+  resolved "https://registry.yarnpkg.com/@babel%2fplugin-syntax-decorators/-/plugin-syntax-decorators-7.1.0.tgz#2fa7c1a7905a299c9853ebcef340306675f9cbdc"
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
@@ -1169,7 +1169,7 @@ aws4@^1.8.0:
 
 axios@^0.18.0:
   version "0.18.0"
-  resolved "http://npm.venus-bdlab.com/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
   dependencies:
     follow-redirects "^1.3.0"
     is-buffer "^1.1.5"
@@ -1303,7 +1303,7 @@ babel-plugin-macros@2.4.2:
 
 babel-plugin-named-asset-import@^0.2.3:
   version "0.2.3"
-  resolved "http://npm.venus-bdlab.com/babel-plugin-named-asset-import/-/babel-plugin-named-asset-import-0.2.3.tgz#b40ed50a848e7bb0a2a7e34d990d1f9d46fe9b38"
+  resolved "https://registry.yarnpkg.com/babel-plugin-named-asset-import/-/babel-plugin-named-asset-import-0.2.3.tgz#b40ed50a848e7bb0a2a7e34d990d1f9d46fe9b38"
 
 babel-plugin-syntax-object-rest-spread@^6.13.0, babel-plugin-syntax-object-rest-spread@^6.8.0:
   version "6.13.0"
@@ -1329,7 +1329,7 @@ babel-preset-jest@^23.2.0:
 
 babel-preset-react-app@^6.1.0:
   version "6.1.0"
-  resolved "http://npm.venus-bdlab.com/babel-preset-react-app/-/babel-preset-react-app-6.1.0.tgz#477ae7f8557eb99ce26d179530127913b733310d"
+  resolved "https://registry.yarnpkg.com/babel-preset-react-app/-/babel-preset-react-app-6.1.0.tgz#477ae7f8557eb99ce26d179530127913b733310d"
   dependencies:
     "@babel/core" "7.1.0"
     "@babel/plugin-proposal-class-properties" "7.1.0"
@@ -3284,7 +3284,7 @@ follow-redirects@^1.0.0:
 
 follow-redirects@^1.3.0:
   version "1.5.10"
-  resolved "http://npm.venus-bdlab.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
   dependencies:
     debug "=3.1.0"
 
@@ -6681,7 +6681,7 @@ react-app-polyfill@^0.1.3:
 
 react-dev-utils@^6.1.1:
   version "6.1.1"
-  resolved "http://npm.venus-bdlab.com/react-dev-utils/-/react-dev-utils-6.1.1.tgz#a07e3e8923c4609d9f27e5af5207e3ca20724895"
+  resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-6.1.1.tgz#a07e3e8923c4609d9f27e5af5207e3ca20724895"
   dependencies:
     "@babel/code-frame" "7.0.0"
     address "1.0.3"
@@ -6710,7 +6710,7 @@ react-dev-utils@^6.1.1:
 
 react-dom@^16.6.3:
   version "16.6.3"
-  resolved "http://npm.venus-bdlab.com/react-dom/-/react-dom-16.6.3.tgz#8fa7ba6883c85211b8da2d0efeffc9d3825cccc0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.6.3.tgz#8fa7ba6883c85211b8da2d0efeffc9d3825cccc0"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -6719,11 +6719,11 @@ react-dom@^16.6.3:
 
 react-error-overlay@^5.1.0:
   version "5.1.0"
-  resolved "http://npm.venus-bdlab.com/react-error-overlay/-/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
+  resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.0.tgz#c516995a5652e7bfbed8b497910d5280df74a7e8"
 
 react-scripts@2.1.1:
   version "2.1.1"
-  resolved "http://npm.venus-bdlab.com/react-scripts/-/react-scripts-2.1.1.tgz#c2959a756b0b61d3090adece0d7aedd324dff8a5"
+  resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-2.1.1.tgz#c2959a756b0b61d3090adece0d7aedd324dff8a5"
   dependencies:
     "@babel/core" "7.1.0"
     "@svgr/webpack" "2.4.1"
@@ -6777,7 +6777,7 @@ react-scripts@2.1.1:
 
 react@^16.6.3:
   version "16.6.3"
-  resolved "http://npm.venus-bdlab.com/react/-/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -7170,7 +7170,7 @@ saxes@^3.1.3:
 
 scheduler@^0.11.2:
   version "0.11.2"
-  resolved "http://npm.venus-bdlab.com/scheduler/-/scheduler-0.11.2.tgz#a8db5399d06eba5abac51b705b7151d2319d33d3"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.11.2.tgz#a8db5399d06eba5abac51b705b7151d2319d33d3"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
