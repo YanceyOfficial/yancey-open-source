@@ -23,14 +23,9 @@
 }
 
 a {
-    color: rgba(255,255,255,.8);
+    color: rgba(255,255,255,.75);
 }
 
-::-webkit-scrollbar {
-    width: 6px;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    background: rgba(58, 58, 58, .6);
+a:hover {
+    color: rgba(255,255,255,1);
 }
