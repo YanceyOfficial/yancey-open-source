@@ -66,7 +66,7 @@ class Content extends Component {
                     <Button
                       primary
                     >
-                      <a href={blogData[key].url} style={styles.link} target="_blank" rel="noopener noreferrer">
+                      <a href={blogData[key].html_url} style={styles.link} target="_blank" rel="noopener noreferrer">
                         GitHub
                       </a>
                     </Button>
@@ -113,7 +113,7 @@ class Content extends Component {
                     <Button
                       primary
                     >
-                      <a href={userData[key].url} style={styles.link} target="_blank" rel="noopener noreferrer">
+                      <a href={userData[key].html_url} style={styles.link} target="_blank" rel="noopener noreferrer">
                         GitHub
                       </a>
                     </Button>
