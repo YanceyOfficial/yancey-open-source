@@ -1,16 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
-
-body, html {
-    height: auto;
+.App {
+    background-image: linear-gradient(to bottom, #09203f 0%, #537895 100%);
+    min-height: 100vh;
+    padding-top: 16px;
 }
 
-body {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%),
-    radial-gradient(at 50% 0%, rgba(255, 255, 255, 0.10) 0%, rgba(0, 0, 0, 0.50) 50%) !important;
-    background-blend-mode: soft-light, screen !important;
-    display: grid;
-    align-items: center;
+.title {
+    padding-bottom: 16px;
+    font-size: 64px;
+    text-align: center;
+    background: url('./assets/images/copy_texture_1_large.jpg') no-repeat center center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 16px;
+    padding-bottom: 16px;
+    font-size: 16px;
+}
+
+a {
+    color: rgba(255,255,255,.8);
 }
 
 ::-webkit-scrollbar {
@@ -20,193 +33,4 @@ body {
 ::-webkit-scrollbar-thumb {
     border-radius: 6px;
     background: rgba(58, 58, 58, .6);
-}
-
-.title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 64px;
-    text-align: center;
-    background: url('https://www.apple.com/v/iphone-xr/d/images/overview/copy_texture_1_large.jpg') no-repeat center center;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-font-smoothing: antialiased;
-    user-select: none;
-}
-
-.copyright {
-    text-align: center;
-    margin-bottom: 16px;
-    color: #fff;
-    font-size: 16px;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-row-gap: 40px;
-    margin: 40px 0;
-}
-
-.card--1 .card__img, .card--1 .card__img--hover {
-    background-image: url('https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-}
-
-.card--2 .card__img, .card--2 .card__img--hover {
-    background-image: url('https://images.pexels.com/photos/307008/pexels-photo-307008.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
-}
-
-.card__like {
-    width: 18px;
-}
-
-.card__clock {
-    width: 20px;
-    vertical-align: middle;
-    fill: #AD7D52;
-}
-
-.card__time {
-    font-size: 12px;
-    color: #AD7D52;
-    vertical-align: middle;
-    margin-left: 5px;
-}
-
-.card__img {
-    visibility: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 235px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-
-}
-
-.card__info-hover {
-    position: absolute;
-    padding: 16px;
-    width: 100%;
-    opacity: 0;
-    top: 0;
-}
-
-.card__img--hover {
-    transition: 0.2s all ease-out;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    position: absolute;
-    height: 235px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    top: 0;
-
-}
-
-.card {
-    margin: 0 auto;
-    transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
-    background-color: #fff;
-    width: 280px;
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
-}
-
-.card:hover {
-    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
-    transform: scale(1.10, 1.10);
-}
-
-.card__info {
-    z-index: 2;
-    background-color: #fff;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-    padding: 16px 24px 24px 24px;
-}
-
-.card__category {
-    font-family: 'Raleway', sans-serif;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    color: #868686;
-}
-
-.card__title {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    font-family: 'Roboto Slab', serif;
-}
-
-.card__by {
-    font-size: 12px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 500;
-}
-
-.card__author {
-    font-weight: 600;
-    text-decoration: none;
-    color: #AD7D52;
-}
-
-.card:hover .card__img--hover {
-    height: 100%;
-    opacity: 0.3;
-}
-
-.card:hover .card__info {
-    background-color: transparent;
-    position: relative;
-}
-
-.card:hover .card__info-hover {
-    opacity: 1;
-}
-
-.data_container svg {
-    width: 12px;
-    height: 12px;
-}
-
-@media (max-width: 1440px) {
-    .cards {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media (max-width: 1024px) {
-    .cards {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .title {
-        font-size: 32px;
-    }
-}
-
-@media (max-width: 414px) {
-    .cards {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .title {
-        font-size: 32px;
-    }
 }
