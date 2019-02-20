@@ -15,7 +15,7 @@ class Content extends Component {
   componentWillUnmount() {}
 
   render() {
-    const { blogData, userData } = this.props;
+    const { dataSource } = this.props;
     const styles = {
       table: {
         width: '98%',
@@ -38,13 +38,17 @@ class Content extends Component {
               <Icon name="briefcase" />
               Name
             </Table.HeaderCell>
-            <Table.HeaderCell collapsing width={5}>
+            <Table.HeaderCell collapsing width={4}>
               <Icon name="info" />
               Introduction
             </Table.HeaderCell>
             <Table.HeaderCell>
               <Icon name="clock" />
               Created Date
+            </Table.HeaderCell>
+            <Table.HeaderCell>
+              <Icon name="arrow circle up" />
+              Updated Date
             </Table.HeaderCell>
             <Table.HeaderCell>
               <Icon name="linkify" />
@@ -65,24 +69,27 @@ class Content extends Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {Object.keys(blogData).map(key => (
-            <Table.Row key={key} warning={blogData[key].fork}>
+          {Object.keys(dataSource).map(key => (
+            <Table.Row key={key}>
               <Table.Cell style={{ textAlign: 'left' }}>
-                {blogData[key].name}
+                {dataSource[key].name}
               </Table.Cell>
               <Table.Cell style={{ textAlign: 'left' }}>
-                {blogData[key].description}
+                {dataSource[key].description}
               </Table.Cell>
               <Table.Cell>
-                {formatJSONDate(blogData[key].created_at).split(' ')[0]}
+                {formatJSONDate(dataSource[key].created_at)}
+              </Table.Cell>
+              <Table.Cell>
+                {formatJSONDate(dataSource[key].updated_at)}
               </Table.Cell>
               <Table.Cell>
                 <Button.Group
-                  style={!blogData[key].homepage ? styles.noDemo : null}
+                  style={!dataSource[key].homepage ? styles.noDemo : null}
                 >
                   <Button primary>
                     <a
-                      href={blogData[key].html_url}
+                      href={dataSource[key].html_url}
                       style={styles.link}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -91,9 +98,9 @@ class Content extends Component {
                     </a>
                   </Button>
                   <Button.Or />
-                  <Button positive disabled={!blogData[key].homepage}>
+                  <Button positive disabled={!dataSource[key].homepage}>
                     <a
-                      href={blogData[key].homepage}
+                      href={dataSource[key].homepage}
                       style={styles.link}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -103,50 +110,9 @@ class Content extends Component {
                   </Button>
                 </Button.Group>
               </Table.Cell>
-              <Table.Cell>{blogData[key].stargazers_count}</Table.Cell>
-              <Table.Cell>{blogData[key].forks_count}</Table.Cell>
-              <Table.Cell>{blogData[key].fork ? 'Yes' : 'No'}</Table.Cell>
-            </Table.Row>
-          ))}
-          {Object.keys(userData).map(key => (
-            <Table.Row key={key}>
-              <Table.Cell style={{ textAlign: 'left' }}>
-                {userData[key].name}
-              </Table.Cell>
-              <Table.Cell style={{ textAlign: 'left' }}>
-                {userData[key].description}
-              </Table.Cell>
-              <Table.Cell>
-                {formatJSONDate(userData[key].created_at).split(' ')[0]}
-              </Table.Cell>
-              <Table.Cell>
-                <Button.Group>
-                  <Button primary>
-                    <a
-                      href={userData[key].html_url}
-                      style={styles.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      GitHub
-                    </a>
-                  </Button>
-                  <Button.Or />
-                  <Button positive disabled={!userData[key].homepage}>
-                    <a
-                      href={userData[key].homepage}
-                      style={styles.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Demo
-                    </a>
-                  </Button>
-                </Button.Group>
-              </Table.Cell>
-              <Table.Cell>{userData[key].stargazers_count}</Table.Cell>
-              <Table.Cell>{userData[key].forks_count}</Table.Cell>
-              <Table.Cell>{userData[key].fork ? 'Yes' : 'No'}</Table.Cell>
+              <Table.Cell>{dataSource[key].stargazers_count}</Table.Cell>
+              <Table.Cell>{dataSource[key].forks_count}</Table.Cell>
+              <Table.Cell>{dataSource[key].fork ? 'Yes' : 'No'}</Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
