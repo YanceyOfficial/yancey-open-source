@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import { Icon, Button, Table } from 'semantic-ui-react';
 import { formatJSONDate } from '../../tools/tools';
 
 class Content extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      column: null,
+      direction: null
+    };
   }
 
   componentWillMount() {}
@@ -14,8 +18,31 @@ class Content extends Component {
 
   componentWillUnmount() {}
 
+  handleSort = clickedColumn => () => {
+    const { transformDataSource, dataSource } = this.props;
+    const { column, direction } = this.state;
+
+    if (column !== clickedColumn) {
+      this.setState({
+        column: clickedColumn,
+        direction: 'ascending'
+      });
+
+      transformDataSource(_.sortBy(dataSource, [clickedColumn]));
+
+      return;
+    }
+
+    this.setState({
+      direction: direction === 'ascending' ? 'descending' : 'ascending'
+    });
+
+    transformDataSource(dataSource.reverse());
+  };
+
   render() {
     const { dataSource } = this.props;
+    const { column, direction } = this.state;
     const styles = {
       table: {
         width: '98%',
@@ -31,7 +58,7 @@ class Content extends Component {
       }
     };
     return (
-      <Table celled selectable style={styles.table} inverted>
+      <Table celled selectable style={styles.table} inverted sortable>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>
@@ -42,11 +69,17 @@ class Content extends Component {
               <Icon name="info" />
               Introduction
             </Table.HeaderCell>
-            <Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'created_at' ? direction : null}
+              onClick={this.handleSort('created_at')}
+            >
               <Icon name="clock" />
               Created Date
             </Table.HeaderCell>
-            <Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'updated_at' ? direction : null}
+              onClick={this.handleSort('updated_at')}
+            >
               <Icon name="arrow circle up" />
               Updated Date
             </Table.HeaderCell>
@@ -54,15 +87,24 @@ class Content extends Component {
               <Icon name="linkify" />
               Link
             </Table.HeaderCell>
-            <Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'stargazers_count' ? direction : null}
+              onClick={this.handleSort('stargazers_count')}
+            >
               <Icon name="star" />
               Stargazers Count
             </Table.HeaderCell>
-            <Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'forks_count' ? direction : null}
+              onClick={this.handleSort('forks_count')}
+            >
               <Icon name="fork" />
               Forks Count
             </Table.HeaderCell>
-            <Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'fork' ? direction : null}
+              onClick={this.handleSort('fork')}
+            >
               <Icon name="cloud download" />
               Is Fork?
             </Table.HeaderCell>
