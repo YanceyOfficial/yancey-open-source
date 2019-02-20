@@ -61,7 +61,10 @@ class Content extends Component {
       <Table celled selectable style={styles.table} inverted sortable>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>
+            <Table.HeaderCell
+              sorted={column === 'name' ? direction : null}
+              onClick={this.handleSort('name')}
+            >
               <Icon name="briefcase" />
               Name
             </Table.HeaderCell>
