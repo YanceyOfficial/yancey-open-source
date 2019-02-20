@@ -50,7 +50,7 @@ class App extends Component {
     return (
       <div className="App">
         <GitHubLogo/>
-        <h1 className="title">GitHub Repositories of Yancey</h1>
+        <h1 className="title">GitHub Repositories for Yancey</h1>
         <Content blogData={blogData} userData={userData}/>
         <footer className="copyright">
           <a href="https://www.yanceyleo.com" target="_blank" rel="noopener noreferrer">
