@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import { Icon, Button, Table } from 'semantic-ui-react';
-import { formatJSONDate } from '../../tools/tools';
+import { formatJSONDate, sizeFormat } from '../../tools/tools';
 
 class Content extends Component {
   constructor(props) {
@@ -91,6 +91,13 @@ class Content extends Component {
               Link
             </Table.HeaderCell>
             <Table.HeaderCell
+              sorted={column === 'size' ? direction : null}
+              onClick={this.handleSort('size')}
+            >
+              <Icon name="database" />
+              Size
+            </Table.HeaderCell>
+            <Table.HeaderCell
               sorted={column === 'stargazers_count' ? direction : null}
               onClick={this.handleSort('stargazers_count')}
             >
@@ -114,27 +121,27 @@ class Content extends Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {Object.keys(dataSource).map(key => (
+          {dataSource.map((value, key) => (
             <Table.Row key={key}>
               <Table.Cell style={{ textAlign: 'left' }}>
-                {dataSource[key].name}
+                {value.name}
               </Table.Cell>
               <Table.Cell style={{ textAlign: 'left' }}>
-                {dataSource[key].description}
+                {value.description}
               </Table.Cell>
               <Table.Cell>
-                {formatJSONDate(dataSource[key].created_at)}
+                {formatJSONDate(value.created_at)}
               </Table.Cell>
               <Table.Cell>
-                {formatJSONDate(dataSource[key].updated_at)}
+                {formatJSONDate(value.updated_at)}
               </Table.Cell>
               <Table.Cell>
                 <Button.Group
-                  style={!dataSource[key].homepage ? styles.noDemo : null}
+                  style={!value.homepage ? styles.noDemo : null}
                 >
                   <Button primary>
                     <a
-                      href={dataSource[key].html_url}
+                      href={value.html_url}
                       style={styles.link}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -143,9 +150,9 @@ class Content extends Component {
                     </a>
                   </Button>
                   <Button.Or />
-                  <Button positive disabled={!dataSource[key].homepage}>
+                  <Button positive disabled={!value.homepage}>
                     <a
-                      href={dataSource[key].homepage}
+                      href={value.homepage}
                       style={styles.link}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -155,9 +162,10 @@ class Content extends Component {
                   </Button>
                 </Button.Group>
               </Table.Cell>
-              <Table.Cell>{dataSource[key].stargazers_count}</Table.Cell>
-              <Table.Cell>{dataSource[key].forks_count}</Table.Cell>
-              <Table.Cell>{dataSource[key].fork ? 'Yes' : 'No'}</Table.Cell>
+              <Table.Cell>{sizeFormat(value.size)}</Table.Cell>
+              <Table.Cell>{value.stargazers_count}</Table.Cell>
+              <Table.Cell>{value.forks_count}</Table.Cell>
+              <Table.Cell>{value.fork ? 'Yes' : 'No'}</Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
