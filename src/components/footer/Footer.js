@@ -11,14 +11,14 @@ class Footer extends Component {
       textAlign: 'center',
       marginTop: '16px',
       paddingBottom: '16px',
-      fontSize: '16px'
+      fontSize: '16px',
     };
     return (
       <footer style={styles}>
         <a
-          href="https://www.yanceyleo.com"
-          target="_blank"
-          rel="noopener noreferrer"
+          href='https://www.yanceyleo.com'
+          target='_blank'
+          rel='noopener noreferrer'
         >
           Copyright &copy; {new Date().getFullYear()} Yancey Inc. All rights
           reserved.

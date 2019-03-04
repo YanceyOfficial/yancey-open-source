@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: []
+      dataSource: [],
     };
   }
 
@@ -28,11 +28,11 @@ class App extends Component {
       const res = await api.blogRepo();
       this.setState(
         {
-          dataSource: [...res.data]
+          dataSource: [...res.data],
         },
         () => {
           this.getUserRepo();
-        }
+        },
       );
     } catch (e) {
       alert('server error');
@@ -40,11 +40,10 @@ class App extends Component {
   };
   getUserRepo = async () => {
     const { dataSource } = this.state;
-    console.log(dataSource);
     try {
       const res = await api.userRepo();
       this.setState({
-        dataSource: [...dataSource, ...res.data]
+        dataSource: [...dataSource, ...res.data],
       });
     } catch (e) {
       alert('server error');
@@ -53,22 +52,22 @@ class App extends Component {
 
   transformDataSource = dataSource => {
     this.setState({
-      dataSource
+      dataSource,
     });
   };
 
   render() {
     const { dataSource } = this.state;
     return (
-      <div className="App">
+      <div className='App'>
         <GitHubLogo />
-        <h1 className="title">GitHub Repositories of Yancey</h1>
+        <h1 className='title'> GitHub Repositories of Yancey </h1>{' '}
         <Content
           dataSource={dataSource}
           transformDataSource={dataSource =>
             this.transformDataSource(dataSource)
           }
-        />
+        />{' '}
         <Footer />
       </div>
     );
