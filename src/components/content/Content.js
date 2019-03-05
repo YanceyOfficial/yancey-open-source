@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
+import dayjs from 'dayjs';
 import { Icon, Button, Table, Form, Input, Select } from 'semantic-ui-react';
 import { DatesRangeInput } from 'semantic-ui-calendar-react';
 import { formatJSONDate, sizeFormat, isBetween } from '../../tools/tools';
@@ -12,8 +13,16 @@ class Content extends Component {
       direction: null,
       inputValue: '',
       dateType: [
-        { key: 'created_at', text: 'Created Date', value: 'created_at' },
-        { key: 'updated_at', text: 'Updated Date', value: 'updated_at' },
+        {
+          key: 'created_at',
+          text: 'Created Date',
+          value: 'created_at',
+        },
+        {
+          key: 'updated_at',
+          text: 'Updated Date',
+          value: 'updated_at',
+        },
       ],
       selectedType: 'updated_at',
       dateRange: '',
@@ -158,8 +167,11 @@ class Content extends Component {
               label='Date Range'
               name='dateRange'
               placeholder='From - To'
+              maxDate={dayjs().format('YYYY-MM-DD')}
               value={dateRange}
               clearable
+              closable
+              duration={400}
               clearIcon={<Icon name='remove' color='red' />}
               iconPosition='left'
               dateFormat='YYYY-MM-DD'
