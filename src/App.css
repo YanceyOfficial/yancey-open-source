@@ -1,5 +1,5 @@
 .App {
-    background-image: linear-gradient(to left, #d7d2cc 0%, #304352 100%);
+    background: url('./assets/images/background.jpeg');
     min-height: 100vh;
     padding-top: 16px;
 }
@@ -16,9 +16,9 @@
 }
 
 a {
-    color: rgba(255,255,255,.75);
+    color: rgba(0, 0, 0, .65);
 }
 
 a:hover {
-    color: rgba(255,255,255,1);
+    color: rgba(0, 0, 0, 1);
 }
