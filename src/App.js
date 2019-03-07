@@ -60,8 +60,10 @@ class App extends Component {
     const { dataSource } = this.state;
     return (
       <div className='App'>
-        <GitHubLogo />
-        <h1 className='title'> GitHub Repositories of Yancey </h1>{' '}
+        <header>
+          <GitHubLogo />
+          <h1 className='title'> GitHub Repositories of Yancey </h1>{' '}
+        </header>{' '}
         <Content
           dataSource={dataSource}
           transformDataSource={dataSource =>

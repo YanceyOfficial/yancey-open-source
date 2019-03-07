@@ -111,7 +111,7 @@ class Content extends Component {
         width: '98%',
         margin: '0 auto',
         textAlign: 'center',
-        boxShadow: '0 1px 20px -8px rgba(0,0,0,.5)',
+        boxShadow: '0 1px 20px -8px rgba(0,0 , 0, .5)',
       },
       link: {
         color: '#fff',
@@ -139,7 +139,11 @@ class Content extends Component {
       },
     };
     return (
-      <>
+      <main
+        style={{
+          flex: 1,
+        }}
+      >
         <Form style={styles.form}>
           <Form.Group>
             <Form.Field
@@ -249,6 +253,7 @@ class Content extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
+            
             {this.filterData().map((value, key) => (
               <Table.Row key={key}>
                 <Table.Cell
@@ -300,7 +305,7 @@ class Content extends Component {
             ))}
           </Table.Body>
         </Table>
-      </>
+      </main>
     );
   }
 }
