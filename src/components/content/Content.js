@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import dayjs from 'dayjs';
-import { Icon, Button, Table, Form, Input, Select } from 'semantic-ui-react';
+import {
+  Icon,
+  Button,
+  Table,
+  Form,
+  Input,
+  Select,
+  Dimmer,
+  Loader,
+} from 'semantic-ui-react';
 import { DatesRangeInput } from 'semantic-ui-calendar-react';
 import { formatJSONDate, sizeFormat, isBetween } from '../../tools/tools';
 
@@ -106,6 +115,8 @@ class Content extends Component {
       selectedType,
       inputValue,
     } = this.state;
+
+    const { loading } = this.props;
     const styles = {
       table: {
         width: '98%',
@@ -190,6 +201,9 @@ class Content extends Component {
             </Form.Field>
           </Form.Group>
         </Form>
+        <Dimmer active={loading}>
+          <Loader>Loading</Loader>
+        </Dimmer>
         <Table celled selectable style={styles.table} inverted sortable>
           <Table.Header>
             <Table.Row>
@@ -253,7 +267,6 @@ class Content extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            
             {this.filterData().map((value, key) => (
               <Table.Row key={key}>
                 <Table.Cell

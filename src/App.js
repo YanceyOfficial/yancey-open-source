@@ -10,6 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       dataSource: [],
+      loading: false,
     };
   }
 
@@ -24,6 +25,9 @@ class App extends Component {
   componentWillUnmount() {}
 
   getBlogRepo = async () => {
+    this.setState({
+      loading: true,
+    });
     try {
       const res = await api.blogRepo();
       this.setState(
@@ -36,6 +40,10 @@ class App extends Component {
       );
     } catch (e) {
       alert('server error');
+    } finally {
+      this.setState({
+        loading: false,
+      });
     }
   };
   getUserRepo = async () => {
@@ -57,7 +65,7 @@ class App extends Component {
   };
 
   render() {
-    const { dataSource } = this.state;
+    const { dataSource, loading } = this.state;
     return (
       <div className='App'>
         <header>
@@ -66,6 +74,7 @@ class App extends Component {
         </header>{' '}
         <Content
           dataSource={dataSource}
+          loading={loading}
           transformDataSource={dataSource =>
             this.transformDataSource(dataSource)
           }
