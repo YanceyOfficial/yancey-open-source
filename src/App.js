@@ -62,7 +62,7 @@ class App extends Component {
       <div className='App'>
         <header>
           <GitHubLogo />
-          <h1 className='title'> GitHub Repositories of Yancey </h1>{' '}
+          <h1 className='title'> Open Source of Yancey </h1>{' '}
         </header>{' '}
         <Content
           dataSource={dataSource}
