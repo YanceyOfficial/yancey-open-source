@@ -1,4 +1,4 @@
-# [The GitHub Repositories Collection for Yancey](https://yancey.app)
+# [The GitHub Repositories Collection Page](https://yancey.app)
 
 ## Available Scripts
 
