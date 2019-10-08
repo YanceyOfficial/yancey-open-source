@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       dataSource: [],
-      loading: false,
+      loading: 0,
     };
   }
 
@@ -20,9 +20,10 @@ class App extends Component {
 
   componentDidMount() {
     this.getBlogRepo();
+    this.getUserRepo();
+    this.getLearnRepo();
+    this.getSourceCodeRepo();
   }
-
-  componentWillUnmount() {}
 
   getBlogRepo = async () => {
     this.setState({
@@ -30,14 +31,9 @@ class App extends Component {
     });
     try {
       const res = await api.blogRepo();
-      this.setState(
-        {
-          dataSource: [...res.data],
-        },
-        () => {
-          this.getUserRepo();
-        },
-      );
+      this.setState({
+        dataSource: [...this.state.dataSource, ...res.data],
+      });
     } catch (e) {
       alert('server error');
     } finally {
@@ -46,15 +42,58 @@ class App extends Component {
       });
     }
   };
+
   getUserRepo = async () => {
-    const { dataSource } = this.state;
+    this.setState({
+      loading: true,
+    });
     try {
       const res = await api.userRepo();
       this.setState({
-        dataSource: [...dataSource, ...res.data],
+        dataSource: [...this.state.dataSource, ...res.data],
       });
     } catch (e) {
       alert('server error');
+    } finally {
+      this.setState({
+        loading: false,
+      });
+    }
+  };
+
+  getLearnRepo = async () => {
+    this.setState({
+      loading: true,
+    });
+    try {
+      const res = await api.learnRepo();
+      this.setState({
+        dataSource: [...this.state.dataSource, ...res.data],
+      });
+    } catch (e) {
+      alert('server error');
+    } finally {
+      this.setState({
+        loading: false,
+      });
+    }
+  };
+
+  getSourceCodeRepo = async () => {
+    this.setState({
+      loading: true,
+    });
+    try {
+      const res = await api.sourceCodeRepo();
+      this.setState({
+        dataSource: [...this.state.dataSource, ...res.data],
+      });
+    } catch (e) {
+      alert('server error');
+    } finally {
+      this.setState({
+        loading: false,
+      });
     }
   };
 
@@ -70,15 +109,15 @@ class App extends Component {
       <div className='App'>
         <header>
           <GitHubLogo />
-          <h1 className='title'> Open Sources of Yancey </h1>{' '}
-        </header>{' '}
+          <h1 className='title'> Open Sources of Yancey </h1>
+        </header>
         <Content
           dataSource={dataSource}
-          loading={loading}
+          loading={!!loading}
           transformDataSource={dataSource =>
             this.transformDataSource(dataSource)
           }
-        />{' '}
+        />
         <Footer />
       </div>
     );
