@@ -113,7 +113,7 @@ class App extends Component {
         </header>
         <Content
           dataSource={dataSource}
-          loading={!!loading}
+          loading={loading}
           transformDataSource={dataSource =>
             this.transformDataSource(dataSource)
           }
