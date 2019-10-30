@@ -22,7 +22,6 @@ class App extends Component {
     this.getBlogRepo();
     this.getUserRepo();
     this.getLearnRepo();
-    this.getSourceCodeRepo();
   }
 
   getBlogRepo = async () => {
@@ -67,24 +66,6 @@ class App extends Component {
     });
     try {
       const res = await api.learnRepo();
-      this.setState({
-        dataSource: [...this.state.dataSource, ...res.data],
-      });
-    } catch (e) {
-      alert('server error');
-    } finally {
-      this.setState({
-        loading: false,
-      });
-    }
-  };
-
-  getSourceCodeRepo = async () => {
-    this.setState({
-      loading: true,
-    });
-    try {
-      const res = await api.sourceCodeRepo();
       this.setState({
         dataSource: [...this.state.dataSource, ...res.data],
       });
