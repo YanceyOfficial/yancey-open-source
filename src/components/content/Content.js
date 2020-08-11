@@ -1,22 +1,14 @@
-import React, { Component } from 'react';
-import _ from 'lodash';
-import dayjs from 'dayjs';
-import {
-  Icon,
-  Button,
-  Table,
-  Form,
-  Input,
-  Select,
-  Dimmer,
-  Loader,
-} from 'semantic-ui-react';
-import { DatesRangeInput } from 'semantic-ui-calendar-react';
-import { formatJSONDate, sizeFormat, isBetween } from '../../tools/tools';
+import React, { Component } from 'react'
+import sortBy from 'lodash.sortby'
+import dayjs from 'dayjs'
+import { formatJSONDate } from 'yancey-js-util'
+import { Icon, Button, Table, Form, Input, Select, Dimmer, Loader } from 'semantic-ui-react'
+import { DatesRangeInput } from 'semantic-ui-calendar-react'
+import { sizeFormat, isBetween } from '../../shared/utils'
 
 class Content extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       column: null,
       direction: null,
@@ -37,45 +29,44 @@ class Content extends Component {
       dateRange: '',
       startDate: '',
       endDate: '',
-    };
+    }
   }
 
-  onSearchChange = e => {
-    const input = e.target.value.toLowerCase();
+  onSearchChange = (e) => {
+    const input = e.target.value.toLowerCase()
     this.setState({
       inputValue: input,
-    });
-  };
+    })
+  }
 
   onSelectChange = (e, { name, value }) => {
     this.setState({
       selectedType: value,
-    });
-  };
+    })
+  }
 
   onDatePickerChange = (event, { name, value }) => {
     this.setState({
       dateRange: value,
       startDate: value.split(' - ')[0],
       endDate: value.split(' - ')[1],
-    });
-    const { startDate, endDate } = this.state;
+    })
+    const { startDate, endDate } = this.state
     if (startDate && endDate) {
-      this.filterData();
+      this.filterData()
     }
-  };
+  }
 
   filterData = () => {
-    const { dataSource } = this.props;
-    const { inputValue, startDate, endDate, selectedType } = this.state;
+    const { dataSource } = this.props
+    const { inputValue, startDate, endDate, selectedType } = this.state
     return dataSource.filter(
-      data =>
-        (!inputValue ||
-          data.name.toLowerCase().includes(inputValue.toLowerCase())) &&
+      (data) =>
+        (!inputValue || data.name.toLowerCase().includes(inputValue.toLowerCase())) &&
         ((!startDate && !endDate) ||
           isBetween(data[selectedType].split('T')[0], startDate, endDate)),
-    );
-  };
+    )
+  }
 
   handleClearChange = () => {
     this.setState({
@@ -83,40 +74,33 @@ class Content extends Component {
       dateRange: '',
       startDate: '',
       endDate: '',
-    });
-  };
+    })
+  }
 
-  handleSort = clickedColumn => () => {
-    const { transformDataSource, dataSource } = this.props;
-    const { column, direction } = this.state;
+  handleSort = (clickedColumn) => () => {
+    const { transformDataSource, dataSource } = this.props
+    const { column, direction } = this.state
 
     if (column !== clickedColumn) {
       this.setState({
         column: clickedColumn,
         direction: 'ascending',
-      });
-      transformDataSource(_.sortBy(dataSource, [clickedColumn]));
-      return;
+      })
+      transformDataSource(sortBy(dataSource, [clickedColumn]))
+      return
     }
 
     this.setState({
       direction: direction === 'ascending' ? 'descending' : 'ascending',
-    });
+    })
 
-    transformDataSource(dataSource.reverse());
-  };
+    transformDataSource(dataSource.reverse())
+  }
 
   render() {
-    const {
-      column,
-      direction,
-      dateType,
-      dateRange,
-      selectedType,
-      inputValue,
-    } = this.state;
+    const { column, direction, dateType, dateRange, selectedType, inputValue } = this.state
 
-    const { loading } = this.props;
+    const { loading } = this.props
     const styles = {
       table: {
         width: '98%',
@@ -148,7 +132,7 @@ class Content extends Component {
         position: 'relative',
         top: '24px',
       },
-    };
+    }
     return (
       <main
         style={{
@@ -160,43 +144,39 @@ class Content extends Component {
             <Form.Field
               control={Input}
               style={styles.input}
-              label='Name'
-              icon='search'
-              iconPosition='left'
-              placeholder='Search...'
+              label="Name"
+              icon="search"
+              iconPosition="left"
+              placeholder="Search..."
               value={inputValue}
-              onChange={e => this.onSearchChange(e)}
+              onChange={(e) => this.onSearchChange(e)}
             />
             <Form.Field
               control={Select}
               style={styles.select}
-              label='Date Type'
+              label="Date Type"
               value={selectedType}
               options={dateType}
-              placeholder='Choose Date Type...'
+              placeholder="Choose Date Type..."
               onChange={this.onSelectChange}
             />
             <Form.Field
               control={DatesRangeInput}
               style={styles.datePicker}
-              label='Date Range'
-              name='dateRange'
-              placeholder='From - To'
+              label="Date Range"
+              name="dateRange"
+              placeholder="From - To"
               maxDate={dayjs().format('YYYY-MM-DD')}
               value={dateRange}
               clearable
               closable
               duration={400}
-              clearIcon={<Icon name='remove' color='red' />}
-              iconPosition='left'
-              dateFormat='YYYY-MM-DD'
+              clearIcon={<Icon name="remove" color="red" />}
+              iconPosition="left"
+              dateFormat="YYYY-MM-DD"
               onChange={this.onDatePickerChange}
             />
-            <Form.Field
-              control={Button}
-              style={styles.btn}
-              onClick={this.handleClearChange}
-            >
+            <Form.Field control={Button} style={styles.btn} onClick={this.handleClearChange}>
               Clear
             </Form.Field>
           </Form.Group>
@@ -211,57 +191,57 @@ class Content extends Component {
                 sorted={column === 'name' ? direction : null}
                 onClick={this.handleSort('name')}
               >
-                <Icon name='briefcase' />
+                <Icon name="briefcase" />
                 Name
               </Table.HeaderCell>
               <Table.HeaderCell collapsing width={4}>
-                <Icon name='info' />
+                <Icon name="info" />
                 Introduction
               </Table.HeaderCell>
               <Table.HeaderCell
                 sorted={column === 'created_at' ? direction : null}
                 onClick={this.handleSort('created_at')}
               >
-                <Icon name='clock' />
+                <Icon name="clock" />
                 Created Date
               </Table.HeaderCell>
               <Table.HeaderCell
                 sorted={column === 'updated_at' ? direction : null}
                 onClick={this.handleSort('updated_at')}
               >
-                <Icon name='arrow circle up' />
+                <Icon name="arrow circle up" />
                 Updated Date
               </Table.HeaderCell>
               <Table.HeaderCell>
-                <Icon name='linkify' />
+                <Icon name="linkify" />
                 Link
               </Table.HeaderCell>
               <Table.HeaderCell
                 sorted={column === 'size' ? direction : null}
                 onClick={this.handleSort('size')}
               >
-                <Icon name='database' />
+                <Icon name="database" />
                 Size
               </Table.HeaderCell>
               <Table.HeaderCell
                 sorted={column === 'stargazers_count' ? direction : null}
                 onClick={this.handleSort('stargazers_count')}
               >
-                <Icon name='star' />
+                <Icon name="star" />
                 Stargazers Count
               </Table.HeaderCell>
               <Table.HeaderCell
                 sorted={column === 'forks_count' ? direction : null}
                 onClick={this.handleSort('forks_count')}
               >
-                <Icon name='fork' />
+                <Icon name="fork" />
                 Forks Count
               </Table.HeaderCell>
               <Table.HeaderCell
                 sorted={column === 'fork' ? direction : null}
                 onClick={this.handleSort('fork')}
               >
-                <Icon name='cloud download' />
+                <Icon name="cloud download" />
                 Is Fork ?
               </Table.HeaderCell>
             </Table.Row>
@@ -291,8 +271,8 @@ class Content extends Component {
                       <a
                         href={value.html_url}
                         style={styles.link}
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         GitHub
                       </a>
@@ -302,8 +282,8 @@ class Content extends Component {
                       <a
                         href={value.homepage}
                         style={styles.link}
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Demo
                       </a>
@@ -319,8 +299,8 @@ class Content extends Component {
           </Table.Body>
         </Table>
       </main>
-    );
+    )
   }
 }
 
-export default Content;
+export default Content

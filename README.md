@@ -14,4 +14,4 @@ You will also see any lint errors in the console.
 
 ## Copyright
 
-Copyright © 2019 Yancey Inc. All rights reserved.
+Copyright © 2020 Yancey Inc. All rights reserved.

@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.2",
     "dayjs": "^1.8.8",
     "lodash": "^4.17.19",
+    "lodash.sortby": "^4.7.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "3.4.1",
     "semantic-ui-calendar-react": "^0.15.3",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^1.1.1"
+    "semantic-ui-react": "^1.1.1",
+    "yancey-js-util": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
