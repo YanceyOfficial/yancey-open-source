@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "dayjs": "^1.8.8",
-    "lodash": "^4.17.19",
     "lodash.sortby": "^4.7.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
