@@ -1,0 +1,31 @@
+{
+  "name": "project-index",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dayjs": "^1.8.8",
+    "lodash": "^4.17.19",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-scripts": "3.4.1",
+    "semantic-ui-calendar-react": "^0.15.3",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
