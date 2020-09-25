@@ -16,7 +16,7 @@ class Footer extends Component {
     return (
       <footer style={styles}>
         <a href="https://www.yanceyleo.com" target="_blank" rel="noopener noreferrer">
-          Copyright &copy; {new Date().getFullYear()} Yancey Inc. All rights reserved.
+          Copyright &copy; {new Date().getFullYear()} Yancey Inc. and its affiliates.
         </a>
       </footer>
     )
