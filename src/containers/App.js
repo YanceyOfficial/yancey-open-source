@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { userRepo, blogRepo, learnFrameRepo, sukiChatRepo } from '../services'
+import { userRepo, blogRepo, learnFrameRepo } from '../services'
 import GitHubLogo from '../components/githubLogo/GitHubLogo'
 import Content from '../components/content/Content'
 import Footer from '../components/footer/Footer'
@@ -31,7 +31,6 @@ class App extends Component {
         fetch(userRepo),
         fetch(blogRepo),
         fetch(learnFrameRepo),
-        fetch(sukiChatRepo),
       ])
 
       const data = await Promise.all(
