@@ -1,17 +1,17 @@
 {
-  "name": "project-index",
+  "name": "yancey-open-source",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "dayjs": "^1.8.8",
+    "dayjs": "^1.11.7",
     "lodash.sortby": "^4.7.0",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-scripts": "3.4.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
     "semantic-ui-calendar-react": "^0.15.3",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^1.1.1",
-    "yancey-js-util": "^3.0.0"
+    "semantic-ui-css": "^2.5.0",
+    "semantic-ui-react": "^2.1.4",
+    "yancey-js-util": "^3.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

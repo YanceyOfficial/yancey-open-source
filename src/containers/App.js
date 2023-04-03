@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { userRepo, blogRepo, learnFrameRepo } from '../services'
-import GitHubLogo from '../components/githubLogo/GitHubLogo'
-import Content from '../components/content/Content'
-import Footer from '../components/footer/Footer'
+import GitHubLogo from '../components/GitHubLogo'
+import Content from '../components/Content'
+import Footer from '../components/Footer'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       dataSource: [],
-      loading: 0,
+      loading: false,
     }
   }
 
@@ -27,11 +27,7 @@ class App extends Component {
     })
 
     try {
-      const res = await Promise.all([
-        fetch(userRepo),
-        fetch(blogRepo),
-        fetch(learnFrameRepo),
-      ])
+      const res = await Promise.all([fetch(userRepo), fetch(blogRepo), fetch(learnFrameRepo)])
 
       const data = await Promise.all(
         res.map(function (data) {
@@ -63,7 +59,7 @@ class App extends Component {
       <div className="App">
         <header>
           <GitHubLogo />
-          <h1 className="title"> Open Sources of Yancey </h1>
+          <h1 className="title">Yancey Open Source</h1>
         </header>
         <Content
           dataSource={dataSource}

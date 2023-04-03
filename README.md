@@ -1,10 +1,10 @@
-# [The GitHub Repositories Collection Page](https://yancey.app)
+# [Yancey Open Source](https://yancey.app)
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `pnpm run start`
 
 Runs the app in the development mode.
 
