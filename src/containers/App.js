@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
-import { userRepo, blogRepo, learnFrameRepo } from '../services'
+import {
+  userRepo,
+  blogRepo,
+  learnFrameRepo,
+  hyperChatRepo,
+  learnMicroserviceWithGoRepo,
+} from '../services'
 import GitHubLogo from '../components/GitHubLogo'
 import Content from '../components/Content'
 import Footer from '../components/Footer'
@@ -27,7 +33,13 @@ class App extends Component {
     })
 
     try {
-      const res = await Promise.all([fetch(userRepo), fetch(blogRepo), fetch(learnFrameRepo)])
+      const res = await Promise.all([
+        fetch(userRepo),
+        fetch(blogRepo),
+        fetch(learnFrameRepo),
+        fetch(hyperChatRepo),
+        fetch(learnMicroserviceWithGoRepo),
+      ])
 
       const data = await Promise.all(
         res.map(function (data) {
