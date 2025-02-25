@@ -20,7 +20,3 @@ yarn-error.log*
 
 # IDE
 .idea
-
-# production
-/build
-/dist
